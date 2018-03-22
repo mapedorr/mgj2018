@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | MGJ18</title>
+    <style type="text/css">
+    	html {
+	      box-sizing: border-box;
+	    }
+
+	    html,
+	    body {
+	      display: flex;
+	      justify-content: center;
+	      align-content: center;
+	      align-items: center;
+	      margin: 0;
+	      background-color: #000;
+	      width: 100%;
+	      height: 100%;
+	    }
+
+	    #gameContainer {
+	      width: 960px;
+	      height: 600px;
+	    }
+    </style>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/MGJ18_Web.json");
+    </script>
+  </head>
+  <body>
+    <div id="gameContainer"></div>
+  </body>
+</html>

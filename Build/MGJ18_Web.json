@@ -1,5 +1,5 @@
 {
-"companyName": "DefaultCompany",
+"companyName": "While You Were Sleeping",
 "productName": "MGJ18",
 "dataUrl": "MGJ18_Web.data.unityweb",
 "asmCodeUrl": "MGJ18_Web.asm.code.unityweb",
@@ -9,5 +9,5 @@
 "graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
 "webglContextAttributes": {"preserveDrawingBuffer": false},
 "splashScreenStyle": "Dark",
-"backgroundColor": "#231F20"
+"backgroundColor": "#000000"
 }

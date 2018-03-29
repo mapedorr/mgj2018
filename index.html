@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Unity WebGL Player | MGJ18</title>
+  <title>Love Deception</title>
   <style>
     html {
       box-sizing: border-box;
@@ -30,15 +30,20 @@
   <script src="Build/UnityLoader.js"></script>
   <script>
     var gameInstance = UnityLoader.instantiate("gameContainer", "Build/MGJ18_Web.json");
-    function putInList() {
-      localStorage.setItem('k', '1');
+    var checkRecordCalls = 0;
+    function putInList(id, color) {
+      localStorage.setItem('ld', id + '' + color);
     }
-    // function removeElement(element) {
-    //   element && element.parentNode && element.parentNode.removeChild(element);
-    // }
     function checkRecord() {
-      if (localStorage.getItem('k')) {
-        gameInstance.SendMessage('GameManager', 'Rejected', parseInt(localStorage.getItem('k')));
+      checkRecordCalls++;
+      if (checkRecordCalls === 1) {
+        var storagedItem = localStorage.getItem('ld');
+        if (storagedItem) {
+          // change the color of the background based on the information stored
+          document.body.style.backgroundColor = '#' + storagedItem.substring(1);
+          // send the emotion ID to Unity
+          gameInstance.SendMessage('GameManager', 'Rejected', parseInt(storagedItem.charAt(0)));
+        }
       }
     }
   </script>

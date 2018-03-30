@@ -32,19 +32,22 @@
     var gameInstance = UnityLoader.instantiate("gameContainer", "Build/MGJ18_Web.json");
     var checkRecordCalls = 0;
     function putInList(id, color) {
-      localStorage.setItem('ld', id + '' + color);
+      localStorage.setItem('t03', id + '' + color);
     }
     function checkRecord() {
       checkRecordCalls++;
       if (checkRecordCalls === 1) {
-        var storagedItem = localStorage.getItem('ld');
+        var storagedItem = localStorage.getItem('t03');
         if (storagedItem) {
           // change the color of the background based on the information stored
-          document.body.style.backgroundColor = '#' + storagedItem.substring(1);
+          setBackgroundColor(storagedItem.substring(1));
           // send the emotion ID to Unity
           gameInstance.SendMessage('GameManager', 'Rejected', parseInt(storagedItem.charAt(0)));
         }
       }
+    }
+    function setBackgroundColor(color) {
+      document.body.style.backgroundColor = '#' + color;
     }
   </script>
 </head>

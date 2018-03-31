@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Love Deception</title>
+  <title>The 7 puzzles</title>
   <style>
     html {
       box-sizing: border-box;
@@ -31,23 +31,21 @@
   <script>
     var gameInstance = UnityLoader.instantiate("gameContainer", "Build/MGJ18_Web.json");
     var checkRecordCalls = 0;
-    function putInList(id, color) {
-      localStorage.setItem('t03', id + '' + color);
-    }
     function checkRecord() {
       checkRecordCalls++;
       if (checkRecordCalls === 1) {
-        var storagedItem = localStorage.getItem('t03');
+        var storagedItem = localStorage.getItem('t7p');
         if (storagedItem) {
-          // change the color of the background based on the information stored
-          setBackgroundColor(storagedItem.substring(1));
           // send the emotion ID to Unity
-          gameInstance.SendMessage('GameManager', 'Rejected', parseInt(storagedItem.charAt(0)));
+          gameInstance.SendMessage('GameManager', 'PickEmotionExcluding', parseInt(storagedItem));
         }
       }
     }
     function setBackgroundColor(color) {
       document.body.style.backgroundColor = '#' + color;
+    }
+    function storeEmotion(id) {
+      localStorage.setItem('t7p', id);
     }
   </script>
 </head>
